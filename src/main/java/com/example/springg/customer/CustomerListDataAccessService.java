@@ -7,8 +7,6 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository("list")
-
-
 public class CustomerListDataAccessService implements CustomerDao {
 
 
@@ -45,8 +43,10 @@ public class CustomerListDataAccessService implements CustomerDao {
                 .findFirst();
     }
 
+
+
     @Override
-    public void InsertCustomer(Customer customer) {
+    public void insertCustomer(Customer customer) {
         customers.add(customer);
     }
 

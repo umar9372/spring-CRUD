@@ -25,7 +25,7 @@ public class CustomerController {
         return customerService.getCustomer(customerId);
     }
 
-@PostMapping("{customerId}")
+@PostMapping()
     public void registerCustomer(
         @RequestBody
             CustomerRegistrationRequest request) {

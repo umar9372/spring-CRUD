@@ -1,0 +1,11 @@
+
+// TO RUN THE DATABASE FROM TERMINAL
+
+1- docker exec -it postgres bash
+2- psql -U amigoscode
+3- \c customer
+4- \d
+
+
+//TO UNDO THE FLYWAY SCHEMA MIGRATION JUST DELETE THE
+  flyway-migration-history from the database
