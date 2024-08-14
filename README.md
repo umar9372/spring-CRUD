@@ -32,21 +32,22 @@ This repository is part of my journey to mastering Spring Framework. The focus h
 
 ## Project Structure
 
-- **src/**
-  - **main/**
-    - **java/**
-      - **com/**
-        - **example/**
-          - **springmasterclass/**
-    - **resources/**
-  - **test/**
-    - **java/**
-      - **com/**
-        - **example/**
-          - **springmasterclass/**
-    - **resources/**
-- **pom.xml**
-
+```plaintext
+src/
+├── main/
+│   ├── java/
+│   │   └── com/
+│   │       └── example/
+│   │           └── springmasterclass/
+│   └── resources/
+├── test/
+│   ├── java/
+│   │   └── com/
+│   │       └── example/
+│   │           └── springmasterclass/
+│   └── resources/
+└── pom.xml
+```
 
 
 ## Testing Overview
