@@ -1,6 +1,7 @@
 package com.example.springg.customer;
 
 import com.example.springg.exception.DuplicateResourceException;
+import com.example.springg.exception.RequestValidationException;
 import com.example.springg.exception.ResourceNotFoundException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -324,7 +325,31 @@ class CustomerServiceTest {
 
         verify(customerDao, never()).updateCustomer(any());
 
+    }
 
+    @Test
+    void willThrowWhenCustomerUdpateHasNoChanges() {
+
+        //Given
+        int id = 10;
+
+        Customer customer = new Customer(
+                id, "umar", "umar@gmail.com", 38
+        );
+
+        when(customerDao.selectCustomerById(id)).thenReturn(Optional.of(customer));
+
+
+        CustomerUpdateRequest updateRequest = new CustomerUpdateRequest(
+                customer.getName(), customer.getEmail(), customer.getAge()
+        );
+
+        //when & then
+        assertThatThrownBy(() -> underTest.updateCustomer(id, updateRequest))
+                .isInstanceOf(RequestValidationException.class)
+                .hasMessage("no data changes found");
+
+        verify(customerDao, never()).updateCustomer(any());
 
     }
 }
